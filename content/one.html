@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sass_one</title>
+
+    <link rel="stylesheet" href="../css/one.css">
+
+</head>
+<body>
+    
+    <!-- 混合器解决大段css样式重复的问题混合进css规则 -->
+    <div class="one">我是one</div>
+    <div class="button">我是button</div>
+    <div class="linka"><a href="http:www.baidu.com">百度一下</a></div>
+    <div class="icon"></div>
+    <a href="http://www.baidu.com" target="_blank">百度一下了</a>
+    <a href="http://www.baidu.com" target="_blank" class="linkb">百度一下了</a>
+    <a href="http://www.baidu.com" target="_blank" class="linkc">百度一下了</a>
+    
+    <!-- 含有css规则的混合器 -->
+    <ul>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+    </ul>
+
+    <!-- 选择器继承(包括占位符选择器) -->
+    <div class="div-error">我是一个警告</div>
+
+    <!-- SassScript 使属性可以使用变量和算数运算，调用函数-->
+    <h2>SassScript支持数据类型：</h2>
+    <h4>数字：1,2,4，13px,10em</h4>
+    <h4>字符串：有引号字符串和无引号字符串,"foo",'bar',baz</h4>
+    <h4>颜色：blue,#00ff00,rgba(255,0,0.0.5)</h4>
+    <h4>布尔型：true,false</h4>
+    <h4>空值：null</h4>
+    <h4>数组：用空格或逗号作为分隔符,10px 10px 20px 30px </h4>
+    <h4>maps:相当于对象,（key1:value1,key2:value2）</h4>
+    <h4>注：使用#{变量名}时，会被处理为无引号字符串，便于在mixin中引用选择器名：</h4>
+
+    <div class="par">
+        <div class="child1">我是子代1</div>
+        <div class="child2">我是子代2</div>
+        <div class="step-child">我是子代step</div>
+    </div>
+
+    <ul class="myul">
+        <li class="li1">我是1</li>
+        <li class="li2">我是2</li>
+        <li class="li3">我是3</li>
+    </ul>
+
+    <div class="one-icon"></div>
+    <div class="two-icon"></div>
+    <div class="three-icon"></div>
+
+    <div class="item-1"></div>
+    <div class="item-2"></div>
+    <div class="item-3"></div>
+    <div class="item-4"></div>
+    <div class="item-5"></div>
+
+    <!-- function() -->
+    <div class="dialog">
+        <div class="dialog-top">
+            <div class="dialog-top-title"></div>
+        </div>
+        <div class="dialog-bottom"></div>
+    </div>
+
+</body>
+</html>

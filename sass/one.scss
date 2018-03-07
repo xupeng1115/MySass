@@ -1,0 +1,288 @@
+// @import "compass/reset";
+// @import "compass/css3";
+// @import "compass/layout";
+// @import "compass/typography";
+// @import "compass/utilities";
+
+$color:#ff6060;
+$fs:20px;
+$fa:$fs;
+@mixin overflow-text{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+@mixin rounded{
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+@mixin no-bullets{
+    list-style:none;
+    li{
+        list-style:none;
+        margin-left:0px;
+        color:#ff6060;
+        &:hover{
+            color:#333;
+        }
+    }
+}
+
+@mixin link-colors-a($normal,$hover,$visited){
+    color:$normal;
+    &:hover{color:$hover;}
+    &:visited{color:$visited;}
+}
+
+@mixin link-colors-b(
+        $normal,
+        $hover:$normal,
+        $visited:$normal
+    )
+    {
+        color:$normal;
+        &:hover{color:$hover;}
+        &:visited{color:$visited;}
+}
+
+@function dialog-width($n){
+    @return $n*100+$fs;
+}
+
+
+
+//清除浮动
+// .clearfix{
+    // @include clearfix;
+// }
+
+// table{
+    // @include table-scaffolding;
+// }
+
+
+#cli_dialog_div{
+    display:none;
+}
+
+/*混合器*/
+// div{
+//     margin:100px auto;
+//     width:200px;
+//     height:40px;
+//     line-height:40px;
+//     background:#ffbf00;
+//     color:$color;
+//     font-size:18px;
+//     text-align:center;
+//     @include rounded;
+//     @include overflow-text;
+// }
+
+.button{
+    margin:100px auto;
+    width:200px;
+    height:40px;
+    line-height:40px;
+    background:#ffbf00;
+    font-size:20px;
+    text-align:center;
+    color:$color;
+    // @include border-radius(5px);
+    // @include border-corner-radius(top,left,5px);
+    // @include opacity(0.5); 
+}
+
+/*混合器中的css规则,引用时会生成父规则中的嵌套规则*/
+ul{
+    background:#ffbf00;
+    // @include no-bullets;
+}
+
+#footer{
+    width:100%;
+    height:100px;
+    background:#666;
+    // @include sticky-footer(54px);
+    // @include stretch;
+}
+
+.linka{
+    width:200px;
+    height:30px;
+    background:#ff6060;
+    text-align:center;
+    line-height:40px;
+    // @include stretch;
+    // @include border-radius(5px);
+    a{
+        display:block;
+        color:$color;
+        font-size:16px;
+        // @include link-colors(green);
+    }
+}
+
+.icon{
+    margin:0 auto;
+    width:100px;
+    height:100px;
+    background:url(../img/one.jpg)no-repeat center center;
+    background-size:100% 100%;
+}
+
+//给混合器传参，定制样式，生成精确的样式
+a{
+    display:block;
+    margin:0 auto;
+    width:200px;
+    height:40px;
+    text-align:center;
+    line-height:40px;
+    @include link-colors-a(blue,red,green);
+}
+.linkb{
+    display:block;
+    margin:0 auto;
+    width:200px;
+    height:40px;
+    text-align:center;
+    line-height:40px;
+    @include link-colors-a(
+        $normal: blue,
+        $visited: green,
+        $hover: red
+    );
+}
+
+.linkc{
+    display:block;
+    margin:0 auto;
+    width:200px;
+    height:40px;
+    text-align:center;
+    line-height:40px;
+    @include link-colors-b(red);
+}
+
+//继承
+.error{
+    height:40px;
+    padding:0 20px;
+    line-height:40px;
+}
+%error{
+    font-size:$fa;
+    color:#ff6060;
+    text-align:center;
+}
+
+.div-error{
+    width:400px;
+    border-radius:5px;
+    @extend .error;
+    @extend %error;
+    @media screen and (max-width:800px){
+        width:200px;
+        color:#ffbf00;
+    }
+}
+
+.par{
+    width:300px;
+    height:100px;
+    font-size:20px;
+    @at-root .child1{
+        font-size:16px;
+        color:#ff6060;
+        @if 1+1==2{border:1px solid green;}
+    }
+    .step-child{
+        font-weight:bold;
+    }
+}
+
+.myul{
+    @for $i from 1 through 3{
+        & .li#{$i}{
+            font-size:10px*$i;
+        }
+    }
+    @for $i from 1 to 3{
+        & .li#{$i}{
+            height:20px*$i;
+        }
+    }
+}
+
+@each $var in one,two,three{
+    .#{$var}-icon{
+        width:200px;
+        height:200px;
+        background:url(../img/#{$var}.jpg)no-repeat center center;
+        background-size:100% 100%;
+    }
+}
+
+//while指令
+$i: 6;
+@while $i > 0 {
+    .item-#{$i} { 
+        width: 20px * $i; 
+        height:10px * $i;
+        background:#ffbf00;
+    }
+    $i: $i - 1;
+}
+
+//混合指令
+//使用@content先导入内容
+@mixin apply-to-ie6-only {
+    * html {
+        @content;
+        height:100%;
+    }
+}
+@include apply-to-ie6-only {
+    #logo {
+        background-image: url(../img/one.jpg);
+        background-size:100% 100%;
+    }
+}
+
+button{
+    @include apply-to-ie6-only;
+}
+
+//函数指令
+.dialog{
+    width:dialog-width($n:5px);
+    height:100px;
+    background:#ff6060;
+    .dialog-top{
+        float:left;
+       width:100px;
+       height:100px;
+       background:#ffbf00; 
+        .dialog-top-title{
+           width:50px;
+           height:50px;
+           background:#ff6060;
+       }
+    }
+    .dialog-bottom{
+        float:left;
+        width:200px;
+        height:100px;
+        background:green;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,260 @@
+@charset "UTF-8";
+#cli_dialog_div {
+  display: none;
+}
+
+/*混合器*/
+.button {
+  margin: 100px auto;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  background: #ffbf00;
+  font-size: 20px;
+  text-align: center;
+  color: #ff6060;
+}
+
+/*混合器中的css规则,引用时会生成父规则中的嵌套规则*/
+ul {
+  background: #ffbf00;
+}
+
+#footer {
+  width: 100%;
+  height: 100px;
+  background: #666;
+}
+
+.linka {
+  width: 200px;
+  height: 30px;
+  background: #ff6060;
+  text-align: center;
+  line-height: 40px;
+}
+
+.linka a {
+  display: block;
+  color: #ff6060;
+  font-size: 16px;
+}
+
+.icon {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: url(../img/one.jpg) no-repeat center center;
+  background-size: 100% 100%;
+}
+
+a {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: blue;
+}
+
+a:hover {
+  color: red;
+}
+
+a:visited {
+  color: green;
+}
+
+.linkb {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: blue;
+}
+
+.linkb:hover {
+  color: red;
+}
+
+.linkb:visited {
+  color: green;
+}
+
+.linkc {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: red;
+}
+
+.linkc:hover {
+  color: red;
+}
+
+.linkc:visited {
+  color: red;
+}
+
+.error, .div-error {
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+}
+
+.div-error {
+  font-size: 20px;
+  color: #ff6060;
+  text-align: center;
+}
+
+.div-error {
+  width: 400px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  .div-error {
+    width: 200px;
+    color: #ffbf00;
+  }
+}
+
+.par {
+  width: 300px;
+  height: 100px;
+  font-size: 20px;
+}
+
+.child1 {
+  font-size: 16px;
+  color: #ff6060;
+  border: 1px solid green;
+}
+
+.par .step-child {
+  font-weight: bold;
+}
+
+.myul .li1 {
+  font-size: 10px;
+}
+
+.myul .li2 {
+  font-size: 20px;
+}
+
+.myul .li3 {
+  font-size: 30px;
+}
+
+.myul .li1 {
+  height: 20px;
+}
+
+.myul .li2 {
+  height: 40px;
+}
+
+.one-icon {
+  width: 200px;
+  height: 200px;
+  background: url(../img/one.jpg) no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.two-icon {
+  width: 200px;
+  height: 200px;
+  background: url(../img/two.jpg) no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.three-icon {
+  width: 200px;
+  height: 200px;
+  background: url(../img/three.jpg) no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.item-6 {
+  width: 120px;
+  height: 60px;
+  background: #ffbf00;
+}
+
+.item-5 {
+  width: 100px;
+  height: 50px;
+  background: #ffbf00;
+}
+
+.item-4 {
+  width: 80px;
+  height: 40px;
+  background: #ffbf00;
+}
+
+.item-3 {
+  width: 60px;
+  height: 30px;
+  background: #ffbf00;
+}
+
+.item-2 {
+  width: 40px;
+  height: 20px;
+  background: #ffbf00;
+}
+
+.item-1 {
+  width: 20px;
+  height: 10px;
+  background: #ffbf00;
+}
+
+* html {
+  height: 100%;
+}
+
+* html #logo {
+  background-image: url(../img/one.jpg);
+  background-size: 100% 100%;
+}
+
+button * html {
+  height: 100%;
+}
+
+.dialog {
+  width: 520px;
+  height: 100px;
+  background: #ff6060;
+}
+
+.dialog .dialog-top {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #ffbf00;
+}
+
+.dialog .dialog-top .dialog-top-title {
+  width: 50px;
+  height: 50px;
+  background: #ff6060;
+}
+
+.dialog .dialog-bottom {
+  float: left;
+  width: 200px;
+  height: 100px;
+  background: green;
+}
+/*# sourceMappingURL=one.css.map */
